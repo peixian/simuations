@@ -30,12 +30,25 @@ nsteps = 200
 xn = [au, 0]
 vn = [0, np.sqrt(GM/au * (1.-ecc)/(1.+ecc))] #apocenter, see (https://en.wikipedia.org/wiki/Apsis#Mathematical_formulae)
 
-def getAcceleration(x, a, GM):
+def getAccel(x, a, GM):
     """returns acceleration"""
     r3 = np.power(np.power(x[0], 2) + np.power(x[1], 2), 1.5)
+    a[0] = -GM*x[0]/r3
+    a[1] = -GM*x[1]/r3  
+    return (x, a)
 
-
+def modEuler(x, v, a, t, dt, GM):
+    """Modified Euler method"""
+    tempX, tempA = getAccel(x, a, GM)
+    #wonky, but quick and dirty array multiplication hack
+    v = map(sum, zip(v, [i*dt for i in tempA])) #v^{n+1}_p = v^n_p + a(x^n_p)\Delta T
+    x = map(sum, zip(tempX, [i *dt for i in v])) #x^{n+1}_p = x^n_p + v^n_p\Delta T
+    return (x, v)
 
 def fwdEuler(x, v, a, t, dt, GM):
     """Forward Euler method"""
-
+    tempX, tempA = getAccel(x, a, GM)
+    #see modEuler, same principle
+    x = map(sum, zip(tempX, [i*dt for i in v])
+    v = map(sum, zip(v, [i*dt for i in tempA]))
+    return (x, v)
