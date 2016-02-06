@@ -19,8 +19,17 @@ ecc = 0
 #maximum time
 tmax = 10.*year
 
+#time counter
 t = 0
+#change in time per step (take smaller steps for more data and visa versa)
 dt = tmax/nsteps
+
+#number of steps to take
+nsteps = 200
+
+xn = [au, 0]
+vn = [0, np.sqrt(GM/au * (1.-ecc)/(1.+ecc))] #apocenter, see (https://en.wikipedia.org/wiki/Apsis#Mathematical_formulae)
+
 def getAcceleration(x, a, GM):
     """returns acceleration"""
     r3 = np.power(np.power(x[0], 2) + np.power(x[1], 2), 1.5)
