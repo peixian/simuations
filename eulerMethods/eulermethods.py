@@ -112,6 +112,7 @@ def makePlots():
     ax.set_xlabel("AU")
     ax.set_ylabel("AU")
     ax.set_zlabel("Time (Years)")
+    ax.set_title("10 years of evolution in a 1M⊙ Kepler potential")
     ax.legend()
     plt.show()
     
