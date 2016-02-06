@@ -22,7 +22,7 @@ ecc = 0 #eccentricty of orbit
 
 tmax = 10.*year #maximum time
 
-nsteps = 100 #number of steps to take
+nsteps = 1000 #number of steps to take
 
 dt = tmax/nsteps #change in time per step (take smaller steps for more data and visa versa)
 
@@ -112,7 +112,7 @@ def makePlots():
     ax.set_xlabel("AU")
     ax.set_ylabel("AU")
     ax.set_zlabel("Time (Years)")
-    ax.set_title("10 years of evolution in a 1M⊙ Kepler potential")
+    ax.set_title("10 years of evolution in a 1M sun Kepler potential")
     ax.legend()
     plt.show()
     
