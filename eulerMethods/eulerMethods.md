@@ -23,7 +23,7 @@ where \\(\dot x \\) is just the derivitive of x, and \\(\mathcal{O}(\Delta t^{n}
 
 In this graph, the *x* and *y* axes are the position of the Earth around the Sun, and *z* is the timescale that the Earth is following, so this graph shows the orbit of the Earth around the Sun in a 10 year period. 
 
-By directly applying the [two equations in *x* and *y* space][^1], we get this orbit: 
+By directly applying the two equations in *x* and *y* space[^1], we get this orbit: 
 
 ![forward Euler orbit][forwardEuler]
 
