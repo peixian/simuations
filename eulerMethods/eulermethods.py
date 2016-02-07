@@ -90,7 +90,7 @@ def makePlots():
     stableX = stableX[:len(stableX)-1]
     stableY = stableY[:len(stableY)-1]
     ax.plot(stableX, stableY, modEulerOrbit["t"], label="Stable Orbit", linestyle="dashed", color="#193441")
-    ax.plot(fwdEulerOrbit["x"], fwdEulerOrbit["y"], fwdEulerOrbit["t"], label="Forward Euler Orbit", color="#3E606F")
+    #ax.plot(fwdEulerOrbit["x"], fwdEulerOrbit["y"], fwdEulerOrbit["t"], label="Forward Euler Orbit", color="#3E606F")
     ax.plot(modEulerOrbit["x"], modEulerOrbit["y"], modEulerOrbit["t"], label="Modified Euler Orbit", color="#91AA9D")
     ax.set_xlim(-2.0*au,2.0*au)
     ax.set_ylim(-2.0*au, 2.0*au)
@@ -100,7 +100,8 @@ def makePlots():
     ax.set_title("Kepler Potential")
     ax.legend()
     fig.set_size_inches(12, 8, forward=True)
-    plt.savefig("fwdModEuler3d.png", format='png', bbox_inches='tight')
+    plt.savefig("stableModEuler.png", format='png', bbox_inches='tight'):
+    
 
 writeOrbits()
 makePlots()
