@@ -17,7 +17,7 @@ with *x* as the dimension, *v* as the velocity, \Delta t as the change in a time
 
 \\(= v^{n}\_p + a^{n}\_p \Delta t + \mathcal{O}(\Delta t^{2}) \\)
 
-where \\(\dot x \\) is just the derivitive of x, and \\(\mathcal{O}(\Delta t^{n}) \\) is just the leftovers of the Taylor series, also called the truncation error. The first thing you'll notice is how both of these systems are linear, so we're modeling a system with a bunch of tiny linear equations. We'll put these two equations to work by modeling the Earth around the Sun with the [Keplerian Potential][keplerProblem] in a 2D fashion. The solution to this problem is trivial, it's a simple circle with radius of 1 AU around the Sun, which can be easily seen with: 
+where \\(\dot x \\) is just the derivitive of \\(x \\), and \\(\mathcal{O}(\Delta t^{n}) \\) is just the leftovers of the Taylor series, also called the truncation error. The first thing you'll notice is how both of these systems are linear, so we're modeling a system with a bunch of tiny linear equations. We'll put these two equations to work by modeling the Earth around the Sun with the [Keplerian Potential][keplerProblem] in a 2D fashion. The solution to this problem is trivial, it's a simple circle with radius of 1 AU around the Sun, which can be easily seen with: 
 
 ![stable orbit][stable]
 
