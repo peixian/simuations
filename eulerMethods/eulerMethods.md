@@ -6,7 +6,7 @@
 
 \\(x^{n+1}\_p = x^{n}\_p + v^{n}\_p\Delta t\\)
 
-with *x* as the dimension, *v* as the velocity, \Delta t as the change in a timestep. A timestep is simply a timeframe in which something is occurring. The first equation states that the velocity for the next timestep is equal to the velocity of the current timestep plus the product of the acceleration, current space, and the change in a timestep. This is just a reordering of the equation that acceleration is simply the difference between velocities. The second equation is just as simple, telling you that the next position will be the sum of the current position and the product of the velocity and time. The faster something moves, the further away it'll be at the next timestep. How did we get these equations? Well the full Taylor series expansion is: 
+with \\(x \\) as the dimension, \\(v \\) as the velocity, \\(\Delta t\\) as the change in a timestep. A timestep is simply a timeframe in which something is occurring. The first equation states that the velocity for the next timestep is equal to the velocity of the current timestep plus the product of the acceleration, current space, and the change in a timestep. This is just a reordering of the equation that acceleration is simply the difference between velocities. The second equation is just as simple, telling you that the next position will be the sum of the current position and the product of the velocity and time. The faster something moves, the further away it'll be at the next timestep. How did we get these equations? Well the full Taylor series expansion is: 
 
 \\(x^{n+1}\_p = x^{n}\_p + \dot x^{n}\_p \Delta t + 1/2 \ddot x^{n}\_p \Delta t^{2} + \mathcal{O}(\Delta t^{3}) \\)
 
