@@ -23,11 +23,11 @@ where \\(\dot x \\) is just the derivitive of x, and \\(\mathcal{O}(\Delta t^{n}
 
 In this graph, the *x* and *y* axes are the position of the Earth around the Sun, and *z* is the timescale that the Earth is following, so this graph shows the orbit of the Earth around the Sun in a 10 year period. 
 
-By directly applying the two equations in *x* and *y* space ([code][https://github.com/peixian/simuations/blob/master/eulerMethods/eulermethods.py]), we get this orbit: 
+By directly applying the [two equations in *x* and *y* space][^1], we get this orbit: 
 
 ![forward Euler orbit][forwardEuler]
 
-This...doens't look like the Earth's orbit at all! If we put it with the stable orbit, we get an orbit that clearly tells us the Earth shouldn't be within the solar system anymore:
+This...doesn't look like the Earth's orbit at all! If we put it with the stable orbit, we get an orbit that clearly tells us the Earth shouldn't be within the solar system anymore:
 
 ![stable and forward Euler orbits][stableAndFwd]
 
@@ -43,6 +43,7 @@ This doesn't look all that different, except that we're now using the velocity i
 
 This is much closer to what we want, but there's still noticeable phase errors on the simulation. The errors are caused by the inherent linear-ness of the Euler methods, we're getting pretty close to it, but we need to go an order higher to get more accurate simulations, which is what I'll talk about in my next post. 
 
+[^1]: The code can be found at https://github.com/peixian/simuations/blob/master/eulerMethods/eulermethods.py
 
 [eulerWikipedia]: https://en.wikipedia.org/wiki/Euler_method
 [stable]: https://raw.githubusercontent.com/peixian/simuations/master/eulerMethods/stable.png
