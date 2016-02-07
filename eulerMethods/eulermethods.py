@@ -4,28 +4,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 from mpl_toolkits.mplot3d import Axes3D
-
-#v^{n+1}_p = v^n_p + a(x^n_p)\Delta T
-#x^{n+1}_p = x^n_p + v^n_p\Delta T
-
 #CONSTANTS
-
 GM = 6.673e-8*2.e33 #gravitational constant * solar mass
-
 au = 1.495e13 #astronomical unit
-
 year = 3.1557e7 #tropical year (see https://en.wikipedia.org/wiki/Tropical_year)
-
 kms = 1.0e5 #km/s
-
 ecc = 0 #eccentricty of orbit
-
 tmax = 10.*year #maximum time
-
 nsteps = 1000 #number of steps to take
-
 dt = tmax/nsteps #change in time per step (take smaller steps for more data and visa versa)
-
 an = [0, 0] #acceleration 
 
 def getAccel(x, a):
@@ -92,8 +79,6 @@ def makePlots():
     fwdEulerOrbit = pd.read_csv("fwdEulerOrbit.out")
     modEulerOrbit = pd.read_csv("modEulerOrbit.out")
     
-    ax.plot(fwdEulerOrbit["x"], fwdEulerOrbit["y"], fwdEulerOrbit["t"], label="Forward Euler Orbit")
-    ax.plot(modEulerOrbit["x"], modEulerOrbit["y"], modEulerOrbit["t"], label="Modified Euler Orbit")
     phis = np.linspace(0, np.pi*2, nsteps/(tmax/year))
     stableX = []
     stableY = []
@@ -102,19 +87,20 @@ def makePlots():
         stableX = np.append(stableX, sX)
         stableY = np.append(stableY, sY)
 
-    print(len(stableX))
-    print(type(stableX))
     stableX = stableX[:len(stableX)-1]
     stableY = stableY[:len(stableY)-1]
-    ax.plot(stableX, stableY, modEulerOrbit["t"], label="Stable Orbit", linestyle="dashed")
+    ax.plot(stableX, stableY, modEulerOrbit["t"], label="Stable Orbit", linestyle="dashed", color="#193441")
+    ax.plot(fwdEulerOrbit["x"], fwdEulerOrbit["y"], fwdEulerOrbit["t"], label="Forward Euler Orbit", color="#3E606F")
+    ax.plot(modEulerOrbit["x"], modEulerOrbit["y"], modEulerOrbit["t"], label="Modified Euler Orbit", color="#91AA9D")
     ax.set_xlim(-2.0*au,2.0*au)
     ax.set_ylim(-2.0*au, 2.0*au)
     ax.set_xlabel("AU")
     ax.set_ylabel("AU")
     ax.set_zlabel("Time (Years)")
-    ax.set_title("10 years of evolution in a 1M sun Kepler potential")
+    ax.set_title("Kepler Potential")
     ax.legend()
-    plt.show()
-    
+    fig.set_size_inches(12, 8, forward=True)
+    plt.savefig("fwdModEuler3d.png", format='png', bbox_inches='tight')
+
 writeOrbits()
 makePlots()
