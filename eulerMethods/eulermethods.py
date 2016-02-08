@@ -104,13 +104,13 @@ def makePlots():
 
     
     ax.plot(stableX, stableY, label="Stable Orbit", linestyle="dashed")
-    #ax.plot(fwdEulerOrbit100["x"], fwdEulerOrbit100["y"], label="t = .1")
-    #ax.plot(fwdEulerOrbit500["x"], fwdEulerOrbit500["y"], label="t = .02")
-    #ax.plot(fwdEulerOrbit1000["x"], fwdEulerOrbit1000["y"], label="t = .01")
+    ax.plot(fwdEulerOrbit100["x"], fwdEulerOrbit100["y"], label="t = .1")
+    ax.plot(fwdEulerOrbit500["x"], fwdEulerOrbit500["y"], label="t = .02")
+    ax.plot(fwdEulerOrbit1000["x"], fwdEulerOrbit1000["y"], label="t = .01")
     
-    ax.plot(modEulerOrbit100["x"], modEulerOrbit100["y"], label="t = .1")
-    ax.plot(modEulerOrbit500["x"], modEulerOrbit500["y"], label="t = .02")
-    ax.plot(modEulerOrbit1000["x"], modEulerOrbit1000["y"], label="t = .01")
+    # ax.plot(modEulerOrbit100["x"], modEulerOrbit100["y"], label="t = .1")
+    # ax.plot(modEulerOrbit500["x"], modEulerOrbit500["y"], label="t = .02")
+    # ax.plot(modEulerOrbit1000["x"], modEulerOrbit1000["y"], label="t = .01")
     
     
     #ax.plot(modEulerOrbit["x"], modEulerOrbit["y"], modEulerOrbit["t"], label="Modified Euler Orbit", color="#91AA9D")
@@ -122,7 +122,7 @@ def makePlots():
     ax.set_title("Kepler Potential for Forward Euler")
     ax.legend(frameon=True)
     fig.set_size_inches(12, 8, forward=True)
-    plt.savefig("stableModEuler.png", format='png', bbox_inches='tight')
+    plt.savefig("stableFwdEuler.png", format='png', bbox_inches='tight')
     
 
 #writeOrbits()
