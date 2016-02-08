@@ -29,14 +29,14 @@ def modEuler(x, v, a):
     """Modified Euler method"""
     tempX, tempA = getAccel(x, a)
     #wonky, but quick and dirty array multiplication hack
-    v = map(sum, zip(v, [i*dt for i in tempA])) #v^{n+1}_p = v^n_p + a(x^n_p)\Delta T
-    x = map(sum, zip(tempX, [i *dt for i in v])) #x^{n+1}_p = x^n_p + v^n_p\Delta T
+    v = map(sum, zip(v, [i*dt for i in tempA]))
+    x = map(sum, zip(tempX, [i *dt for i in v])) 
     return (x, v)
 
 def fwdEuler(x, v, a):
     """Forward Euler method"""
     tempX, tempA = getAccel(x, a)
-    #see modEuler, same principle
+    #wonky, but quick and dirty array multiplication hack
     x = map(sum, zip(tempX, [i*dt for i in v]))
     v = map(sum, zip(v, [i*dt for i in tempA]))
     return (x, v)
